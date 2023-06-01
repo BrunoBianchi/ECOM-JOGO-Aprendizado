@@ -2,7 +2,9 @@
     "name": "JOGO",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "pxt-circuit-playground-character-icons": "github:adafruit/circuit-playground-character-icons#v0.0.8",
+        "animation": "*"
     },
     "files": [
         "main.blocks",
