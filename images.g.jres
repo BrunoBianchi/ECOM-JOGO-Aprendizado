@@ -1,0 +1,17 @@
+{
+    "image1": {
+        "data": "hwQQABAAAAAAAAAA8P9CIAAAAP//Ef9SAADwHxERDwCQ/x9mZvEAAADwYZZm8QAAAPBhGRYPAAAAH2GRFg8AAPARZhkWDwAAAB9hkRYPAAAA8GEZFg8AAADwYZZm8QAAkP8fZmbxAAAAAPAfEREPAAAAAP//Ef8CAAAAAPD/QlAAAAAAAAAAJQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "player"
+    },
+    "image2": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4O4OAAAAAO7u7u4AAADg3e7u7g4AAODd7d7tDgAA4N7u3t0OAADu7u7u7g4AAN7u7t7t7gAA3t3u3u3uAADe3e7d7e4AAO7u7u7tDgAAAODu7u4AAAAAAODu7gAAAAAA4O7uAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "enemy1"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
