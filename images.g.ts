@@ -25,20 +25,20 @@ f 1 1 f f . . . . . f f 1 1 f .
             case "image2":
             case "enemy1":return img`
 . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . e e e e e . . . . 
-. . . . e e e e d d d e . . . . 
-. . . e d d e e e d d e . . . . 
-. . . e d d d e e d d e e . . . 
-. . . e e d e e e e e e e . . . 
-. . e e e e e e e e e e e e e . 
-. . e e e e e e e e d e e e e . 
-. . e e e d d e d d d e e e e . 
-. . e e e d d e d d d d e e e . 
-. . . e e e d e e e e e e e e . 
-. . . . e e e e e e e e . . . . 
-. . . . . . . . e e e . . . . . 
-. . . . . . . . . . . . . . . . 
+. . . . . . . c c c c c . . . . 
+. . . . c c c e e b b e c . . . 
+. . . c e e e e b d c e c . . . 
+. . c e b b e e b c c e c . . . 
+. . c b c d d e e d d e e c . . 
+. . c b c c d e e e e e e c c . 
+. c e e d d e e e e e e d e e c 
+. c e e e e e e e b d e e e e c 
+. c e e e b b e b c c d d d e c 
+. c e e b d d e b d d d e e e c 
+. . c e e e d e e e e e e e e c 
+. . . c e e e e b d e e c c c . 
+. . . . c c c c e b d c . . . . 
+. . . . . . . . c c c . . . . . 
 . . . . . . . . . . . . . . . . 
 `;
         }
