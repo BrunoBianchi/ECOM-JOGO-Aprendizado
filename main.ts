@@ -1,35 +1,17 @@
 namespace SpriteKind {
     export const TiroduMAl = SpriteKind.create()
+    export const Inimigo = SpriteKind.create()
 }
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(assets.image`projetil`, personagem, 0, -75)
-    pause(400)
-})
-info.onScore(100, function () {
-    Nivel += 1
-})
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
-    sprites.destroy(myEnemy)
-    info.changeLifeBy(-1)
-    if (info.life() == 0) {
-        game.gameOver(false)
-    }
-    scene.cameraShake(4, 500)
-})
-sprites.onDestroyed(SpriteKind.Enemy, function (sprite) {
-    animation.runImageAnimation(
-    myEnemy,
-    assets.animation`myAnim`,
-    200,
-    false
-    )
-})
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Inimigo, function (sprite, otherSprite) {
     sprites.destroy(myEnemy)
     sprites.destroy(projectile)
     info.changeScoreBy(1)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(assets.image`projetil`, personagem, 0, -75)
+    pause(400)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Inimigo, function (sprite, otherSprite) {
     scene.cameraShake(4, 500)
     sprites.destroy(myEnemy)
     info.changeLifeBy(-1)
@@ -37,10 +19,21 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         game.gameOver(false)
     }
 })
+info.onScore(100, function () {
+    Nivel += 1
+})
+sprites.onOverlap(SpriteKind.Inimigo, SpriteKind.Player, function (sprite, otherSprite) {
+    sprites.destroy(myEnemy)
+    info.changeLifeBy(-1)
+    if (info.life() == 0) {
+        game.gameOver(false)
+    }
+    scene.cameraShake(4, 500)
+})
 let Vida_Inimiga: StatusBarSprite = null
 let localizacao_aleatoria = 0
-let myEnemy: Sprite = null
 let projectile: Sprite = null
+let myEnemy: Sprite = null
 let personagem: Sprite = null
 effects.starField.startScreenEffect()
 personagem = sprites.create(assets.image`personagem`, SpriteKind.Player)
@@ -58,7 +51,7 @@ controller.moveSprite(personagem, 100, 0)
 let Nivel = 0
 game.onUpdateInterval(2000, function () {
     if (info.score() >= 0) {
-        myEnemy = sprites.create(assets.image`MyEnemy`, SpriteKind.Enemy)
+        myEnemy = sprites.create(assets.image`MyEnemy`, SpriteKind.Inimigo)
         localizacao_aleatoria = randint(1, scene.screenWidth())
         Vida_Inimiga = statusbars.create(20, 4, StatusBarKind.Health)
         Vida_Inimiga.attachToSprite(myEnemy, 5, 0)
