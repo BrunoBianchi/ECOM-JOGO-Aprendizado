@@ -9,7 +9,8 @@ info.onScore(100, function () {
     Nivel += 1
 })
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
-    sprites.destroy(myEnemy)
+    let Enemy1: Sprite = null
+    sprites.destroy(Enemy1)
     info.changeLifeBy(-1)
     if (info.life() == 0) {
         game.gameOver(false)
@@ -26,7 +27,7 @@ sprites.onDestroyed(SpriteKind.Enemy, function (sprite) {
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(myEnemy)
-    sprites.destroy(projectile)
+    sprites.destroy(projectile, effects.spray, 500)
     info.changeScoreBy(1)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
@@ -62,9 +63,10 @@ game.onUpdateInterval(2000, function () {
         localizacao_aleatoria = randint(1, scene.screenWidth())
         Vida_Inimiga = statusbars.create(20, 4, StatusBarKind.Health)
         Vida_Inimiga.attachToSprite(myEnemy, 5, 0)
+        Vida_Inimiga.setColor(2, 15)
         myEnemy.setPosition(localizacao_aleatoria, 0)
         myEnemy.setVelocity(0, 35)
-        myEnemy.startEffect(effects.fire, 1300)
+        myEnemy.startEffect(effects.fire)
     }
     if (info.score() >= 25) {
         myEnemy.setVelocity(0, 42)
