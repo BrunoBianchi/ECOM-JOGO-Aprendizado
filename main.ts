@@ -5,16 +5,16 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(assets.image`projetil`, personagem, 0, -75)
     pause(400)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.TiroduMAl, function (sprite, otherSprite) {
-    scene.cameraShake(4, 500)
+info.onScore(100, function () {
+    Nivel += 1
+})
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
     sprites.destroy(myEnemy)
     info.changeLifeBy(-1)
     if (info.life() == 0) {
         game.gameOver(false)
     }
-})
-info.onScore(100, function () {
-    Nivel += 1
+    scene.cameraShake(4, 500)
 })
 sprites.onDestroyed(SpriteKind.Enemy, function (sprite) {
     animation.runImageAnimation(
@@ -26,7 +26,7 @@ sprites.onDestroyed(SpriteKind.Enemy, function (sprite) {
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(myEnemy)
-    sprites.destroy(projectile, effects.spray, 500)
+    sprites.destroy(projectile)
     info.changeScoreBy(1)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
