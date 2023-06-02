@@ -1,4 +1,4 @@
-// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.12.30/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.3","target":"arcade","targetVersion":"1.12.30","repo":"brunobianchi/ecom-jogo"}
+// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.12.30/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.4","target":"arcade","targetVersion":"1.12.30","repo":"brunobianchi/ecom-jogo"}
 // total=1979013 new=5.66% cached=89.06% other=5.28%
 (function (ectx) {
 'use strict';
@@ -595,7 +595,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P88859(s) {
+function _main___P89129(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1254,13 +1254,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P88859.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
-_main___P88859.continuations = [ 46,47,48,49 ]
+_main___P89129.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
+_main___P89129.continuations = [ 46,47,48,49 ]
 
-function _main___P88859_mk(s) {
+function _main___P89129_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P88859, depth: s.depth + 1,
+        parent: s, fn: _main___P89129, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -67222,5 +67222,5 @@ const sprites_BaseSpriteSayRenderer__C27973_VT = mkVTable({
 
 const breakpoints = setupDebugger(1, ["transparency16___30131","TiroduMAl___87317","projectile___87324","personagem___87330","myEnemy___87346","Nivel___87359","localizacao_aleatoria___87406","Vida_Inimiga___87404"])
 
-return _main___P88859
+return _main___P89129
 })
