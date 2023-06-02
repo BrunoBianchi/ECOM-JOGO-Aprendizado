@@ -3,25 +3,6 @@ namespace myImages {
 
     helpers._registerFactory("image", function(name: string) {
         switch(helpers.stringTrim(name)) {
-            case "image2":
-            case "enemy1":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . c c c c c . . . . 
-. . . . c c c e e b b e c . . . 
-. . . c e e e e b d c e c . . . 
-. . c e b b e e b c c e c . . . 
-. . c b c d d e e d d e e c . . 
-. . c b c c d e e e e e e c c . 
-. c e e d d e e e e e e d e e c 
-. c e e e e e e e b d e e e e c 
-. c e e e b b e b c c d d d e c 
-. c e e b d d e b d d d e e e c 
-. . c e e e d e e e e e e e e c 
-. . . c e e e e b d e e c c c . 
-. . . . c c c c e b d c . . . . 
-. . . . . . . . c c c . . . . . 
-. . . . . . . . . . . . . . . . 
-`;
             case "image1":
             case "personagem":return img`
 ..........f..........
@@ -46,13 +27,51 @@ f1166881681861886611f
 ....5..4......5.5....
 ......5.5...5........
 `;
+            case "5+|oUw8xr7R[65qM2gU@":
+            case "projetil":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. 1 . . . . . . . . . . . . 1 . 
+. 9 . . . . . . . . . . . . 9 . 
+1 9 1 . . . . . . . . . . 1 9 1 
+9 6 9 . . . . . . . . . . 9 6 9 
+6 8 6 8 . . . . . . . . 8 6 8 6 
+8 . 8 . . . . . . . . . . 8 . 8 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`;
+            case "image2":
+            case "MyEnemy":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . c c c c c . . . . 
+. . . . c c c e e b b e c . . . 
+. . . c e e e e b d c e c . . . 
+. . c e b b e e b c c e c . . . 
+. . c b c d d e e d d e e c . . 
+. . c b c c d e e e e e e c c . 
+. c e e d d e e e e e e d e e c 
+. c e e e e e e e b d e e e e c 
+. c e e e b b e b c c d d d e c 
+. c e e b d d e b d d d e e e c 
+. . c e e e d e e e e e e e e c 
+. . . c e e e e b d e e c c c . 
+. . . . c c c c e b d c . . . . 
+. . . . . . . . c c c . . . . . 
+. . . . . . . . . . . . . . . . 
+`;
         }
         return null;
     })
 
     helpers._registerFactory("animation", function(name: string) {
         switch(helpers.stringTrim(name)) {
-            case "player":
+            case "animplayer":
             case "anim1":return [img`
 ..........f..........
 .........f1f.........
@@ -97,6 +116,76 @@ f1166881681861886611f
 .....4.4......4......
 .............4.4.....
 ....5..5......5.5....
+`];
+            case "myAnim":
+            case "anim2":return [img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . c c c c c c . . . . . 
+. . . . c e e e e e c c c . . . 
+. . . c d e e d b e e e c c . . 
+. . . c e d d 4 4 d d e e c . . 
+. . . c e d 4 5 5 4 d d e c . . 
+. . c e e d 2 5 5 2 . d e c . . 
+. . c e e d . 2 2 b b e c c . . 
+. . . c c e e e e e d e c . . . 
+. . . . c c c e e d d c . . . . 
+. . . . . . c c c c c . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . c c c c c . . . . . 
+. . . . . c c e e d c c . . . . 
+. . . . 2 e e e d 4 4 e c . . . 
+. . . . 2 4 d d 4 5 4 e e c . . 
+. . . c e 2 4 d 5 5 4 d e c . . 
+. . . c e 2 5 5 5 5 4 d d c . . 
+. . . c e d 2 5 5 5 5 4 d c . . 
+. . . c c d 2 5 4 2 4 4 c c . . 
+. . . . c e 4 4 e e 2 4 4 . . . 
+. . . . . 4 4 e c c c . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . 4 4 4 4 4 . . . . . . 
+. . . 4 4 4 5 5 5 d 4 4 4 4 . . 
+. . 4 d 5 d 5 5 5 d d d 4 4 . . 
+. . 4 5 5 1 1 1 d d 5 5 5 4 . . 
+. 4 5 5 5 1 1 1 5 1 1 5 5 4 4 . 
+. 4 d d 1 1 5 5 5 1 1 5 5 d 4 . 
+. 4 5 5 1 1 5 1 1 5 5 d d d 4 . 
+. 2 5 5 5 d 1 1 1 5 1 1 5 5 2 . 
+. 2 d 5 5 d 1 1 1 5 1 1 5 5 2 . 
+. . 2 4 d d 5 5 5 5 d d 5 4 . . 
+. . . 2 2 4 d 5 5 d d 4 4 . . . 
+. . 2 2 2 2 2 4 4 4 2 2 2 . . . 
+. . . 2 2 4 4 4 4 4 4 2 2 . . . 
+. . . . . 2 2 2 2 2 2 . . . . . 
+`, img`
+. 4 . . . . . . . . . . . 4 . . 
+. 4 4 . . . . . . . . . 4 4 . . 
+. 4 d 4 . . 4 4 . . 4 4 d 4 . . 
+. . 4 5 4 4 5 5 4 4 d d 4 4 . . 
+. . 4 d 5 d 1 1 d 5 5 d 4 4 . . 
+. . 4 5 5 1 1 1 1 5 1 1 5 4 . . 
+. 4 5 5 5 5 1 1 5 1 1 1 d 4 4 . 
+. 4 d 5 1 1 5 5 5 1 1 1 5 5 4 . 
+. 4 4 5 1 1 5 5 5 5 5 d 5 5 4 . 
+. . 4 5 d 5 5 5 d 5 5 d d d 4 . 
+. 4 5 5 d 5 5 5 d d d 5 5 4 . . 
+. 4 5 5 d 5 5 d d 5 d 5 5 4 . . 
+. 4 4 d d 4 d d d 4 5 d d 4 . . 
+. . 4 5 4 4 4 4 4 4 4 4 4 . . . 
+. 4 5 4 . . 4 4 4 . . . 4 4 . . 
+. 4 4 . . . . . . . . . . 4 4 . 
 `];
         }
         return null;

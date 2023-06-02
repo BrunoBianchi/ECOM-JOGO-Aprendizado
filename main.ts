@@ -2,37 +2,31 @@ namespace SpriteKind {
     export const TiroduMAl = SpriteKind.create()
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . 1 . . . . . . . . . . . . 1 . 
-        . 9 . . . . . . . . . . . . 9 . 
-        1 9 1 . . . . . . . . . . 1 9 1 
-        9 6 9 . . . . . . . . . . 9 6 9 
-        6 8 6 8 . . . . . . . . 8 6 8 6 
-        8 . 8 . . . . . . . . . . 8 . 8 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, personagem, 0, -75)
+    projectile = sprites.createProjectileFromSprite(assets.image`projetil`, personagem, 0, -75)
+    pause(400)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.TiroduMAl, function (sprite, otherSprite) {
-    let mySprite: Sprite = null
     scene.cameraShake(4, 500)
-    sprites.destroy(mySprite)
+    sprites.destroy(myEnemy)
     info.changeLifeBy(-1)
     if (info.life() == 0) {
         game.gameOver(false)
     }
 })
+info.onScore(100, function () {
+    Nivel += 1
+})
+sprites.onDestroyed(SpriteKind.Enemy, function (sprite) {
+    animation.runImageAnimation(
+    myEnemy,
+    assets.animation`myAnim`,
+    200,
+    false
+    )
+})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(myEnemy)
-    sprites.destroy(projectile)
+    sprites.destroy(projectile, effects.spray, 500)
     info.changeScoreBy(1)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
@@ -43,6 +37,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         game.gameOver(false)
     }
 })
+let Vida_Inimiga: StatusBarSprite = null
 let localizacao_aleatoria = 0
 let myEnemy: Sprite = null
 let projectile: Sprite = null
@@ -51,44 +46,37 @@ effects.starField.startScreenEffect()
 personagem = sprites.create(assets.image`personagem`, SpriteKind.Player)
 animation.runImageAnimation(
 personagem,
-assets.animation`player`,
+assets.animation`animplayer`,
 100,
 true
 )
 personagem.y = 100
 personagem.setStayInScreen(true)
-info.setLife(5)
+info.setLife(3)
 info.setScore(0)
 controller.moveSprite(personagem, 100, 0)
-game.onUpdateInterval(1000, function () {
-    if ((0 as any) >= (25 as any)) {
+let Nivel = 0
+game.onUpdateInterval(2000, function () {
+    if (info.score() >= 0) {
+        myEnemy = sprites.create(assets.image`MyEnemy`, SpriteKind.Enemy)
         localizacao_aleatoria = randint(1, scene.screenWidth())
-        myEnemy.setPosition(localizacao_aleatoria, 7)
+        Vida_Inimiga = statusbars.create(20, 4, StatusBarKind.Health)
+        Vida_Inimiga.attachToSprite(myEnemy, 5, 0)
+        myEnemy.setPosition(localizacao_aleatoria, 0)
+        myEnemy.setVelocity(0, 35)
+        myEnemy.startEffect(effects.fire, 1300)
+    }
+    if (info.score() >= 25) {
+        myEnemy.setVelocity(0, 42)
+    }
+    if (info.score() >= 50) {
         myEnemy.setVelocity(0, 50)
-        myEnemy.startEffect(effects.fire, 1300)
-    }
-})
-game.onUpdateInterval(800, function () {
-    if ((0 as any) >= (50 as any)) {
         personagem.y = 120
+    }
+    if (info.score() >= 75) {
         localizacao_aleatoria = randint(1, scene.screenWidth())
-        myEnemy.setPosition(localizacao_aleatoria, 7)
+        localizacao_aleatoria = randint(1, scene.screenWidth())
+        myEnemy.setPosition(localizacao_aleatoria, 0)
         myEnemy.setVelocity(0, 60)
-        myEnemy.startEffect(effects.fire, 1300)
     }
-})
-game.onUpdateInterval(800, function () {
-    if ((0 as any) >= (75 as any)) {
-        localizacao_aleatoria = randint(2, scene.screenWidth())
-        myEnemy.setPosition(localizacao_aleatoria, 4)
-        myEnemy.setVelocity(0, 60)
-        myEnemy.startEffect(effects.fire, 1300)
-    }
-})
-game.onUpdateInterval(1500, function () {
-    myEnemy = sprites.create(assets.image`enemy1`, SpriteKind.Enemy)
-    localizacao_aleatoria = randint(1, scene.screenWidth())
-    myEnemy.setPosition(localizacao_aleatoria, 7)
-    myEnemy.setVelocity(0, 50)
-    myEnemy.startEffect(effects.fire, 1300)
 })
